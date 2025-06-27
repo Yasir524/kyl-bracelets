@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Compra - Pulceras Personalizadas</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        body {
+            background-color: pink;  
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        
+        header { background: #333; color: white; padding: 10px; text-align: center; }
+        nav { background: #f4f4f4; padding: 10px; text-align: center; margin-bottom: 20px; }
+        nav a { margin: 0 15px; text-decoration: none; color: #333; }
+        section, article { display: inline-block; vertical-align: top; width: 48%; margin-right: 2%; }
+        aside { display: inline-block; vertical-align: top; width: 48%; background: #f9f9f9; padding: 10px; border-radius: 5px; }
+        footer { background: #333; color: white; text-align: center; padding: 10px; margin-top: 20px; }
+        form { background: #f9f9f9; padding: 20px; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+        label { font-weight: bold; display: block; margin-top: 10px; }
+        input, select, textarea { width: 100%; padding: 8px; margin-top: 5px; }
+        button { background: #bd3580; color: white; padding: 10px; border: none; margin-top: 15px; cursor: pointer; }
+        button:hover { background: #b82c89; }
+        .table-container { margin-top: 20px; }
+        .table-container table { width: 100%; border-collapse: collapse; }
+        .table-container th, .table-container td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        .table-container th { background-color: #f2f2f2; }
+    </style>
+    <title>Cambiar tipo de letra</title>
+    <style>
+        p {
+            font-family: 'Arial', sans-serif; 
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Pulceras Personalizadas</h1>
+        <p>¡Compra tu pulcera única y personalizada hoy mismo!</p>
+        <img src="logo.jpg" alt="Pulcera personalizada" width="100">
+
+    </header>
+
+    <nav>
+        <a href="#">Inicio</a>
+        <a href="#">Productos</a>
+        <a href="#">Contacto</a>
+    </nav>
+
+    <div style="display: flex; justify-content: space-between;">
+
+        <section>
+            <h2>Compra para Pulceras Personalizadas</h2>
+            <form action="procesar_compra.php" method="POST">
+                <label for="nombre">Nombre Completo:</label>
+                <input type="text" id="nombre" name="nombre" required>
+
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono" required pattern="[0-9]{10}" placeholder="Ej: 5551234567">
+
+                <label for="fecha_nacimiento">Fecha de Entrega:</label>
+                <input type="date" id="fecha_entrega" name="fecha_entrega" required>
+
+                <label for="producto">Selecciona un Producto:</label>
+                <select id="producto" name="producto" required onchange="calcularTotal()">
+                    <option value="">-- Selecciona un producto --</option>
+                    <option value="70">Pulcera Duo - $70</option>
+                    <option value="40">Pulcera Nombre - $40</option>
+                    <option value="50">Pulcera Futbol- $50</option>
+                    <option value="50">Pulcera Estrella - $50</option>
+                    <option value="50">Pulcera Letra - $50</option>
+                    <option value="50">Collar Tulipan - $50</option>
+                    <option value="70">Llavero Personalizado - $70</option>
+                    <option value="70">Lapicero Personalizado - $70</option>
+                </select>
+
+                <label for="cantidad">Cantidad:</label>
+                <input type="number" id="cantidad" name="cantidad" min="1" required value="1" onchange="calcularTotal()">
+
+                <label>Total a Pagar:</label>
+                <p id="total">$0</p>
+
+                <button type="submit">Realizar Compra</button>
+
+            <label for="notas">Notas Adicionales:</label>
+            <textarea id="notas" name="notas" rows="3" placeholder="Ej: Instrucciones de entrega, referencias, etc."></textarea>
+            <h1>Un Pequeño Video De Lo Que Elaboramos</h1>
+            <video width="260" height="120" controls>
+                <source src="videowhatsap.mp4" type="video/mp4">
+            <video width="260" height="120" controls>
+                <source src="video2whatsap.mp4" type="video/mp4">
+            </form>
+
+            <script>
+                function calcularTotal() {
+                    let producto = document.getElementById("producto").value;
+                    let cantidad = document.getElementById("cantidad").value;
+                    let total = producto * cantidad;
+                    document.getElementById("total").textContent = "$" + total;
+                }
+            </script>
+        </section>
+
+        <aside>
+            <h2>Productos Destacados</h2>
+            <article>
+                <h3>Pulcera Duo</h3>
+                <title>Cambiar tipo de letra</title>
+                <p><strong>Precio:</strong> $70</p>
+                <p>"Tu pulcera con un diseño exclusivo para ti."</p>
+                <img src="pulceraduo.jpg" alt="Pulcera Duo" width="100">
+            </article>
+
+            <article>
+                <h3>Pulcera Nombre</h3>
+                <p><strong>Precio:</strong> $40</p>
+                <p><em>"Ideal para regalar a alguien especial."</em></p>
+                <img src="pulseranombre.jpg" alt="Pulcera Nombre" width="200">
+            </article>
+
+            <h3>Otros productos</h3>
+            <ul>
+                <li>Pulcera Futbol</li>
+                <li>Pulcera Estrella</li>
+                <li>Collar Tulipan</li>
+            </ul>
+            <footer>
+                <div>
+                    <a href="https://www.facebook.com/share/15yohZoMCS/?mibextid=wwXIfr" target="_blank">
+                        <img src="logofacebook.jpg" alt="Facebook" width="30" height="30">
+                        <span class="facebook-text">Haz clic aqui para contactarme</span>
+                    </a>
+                    <a href="https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.instagram.com%2Fkyl_bracelets%3Ffbclid%3DIwZXh0bgNhZW0CMTAAAR2GCO1gBCpCnLCTcyRn58wO1acasBHjN3-SpS4L45mKtI2O-lV952xX6e8_aem_7H__Duhv_TQZxzSJ9L_0nw&h=AT24OIKbqpbJBMpyaOvfJ1j_xMlBnt2qtwHdes_SwbHao-Z2GerbymR6COaXX9x9ZdCk2YPKHYun3NVp0xhzqe-aaZHDuwtmOoo01sKDrn91c4jJOE4knVtwUipmhYuOsnPCwPPH-pwrgIg6P5Ji7A" target="_blank">
+                        <img src="logoinstagram.jpg" alt="Instagram" width="30" height="30">
+                        <span class="facebook-text">Haz clic aqui para contactarme</span>
+                    </a>
+                </div>
+            </footer> 
+        </aside>
+    </div>
+    <footer>
+        <p>&copy; 2025 Pulceras Personalizadas. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
